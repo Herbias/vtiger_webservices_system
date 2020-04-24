@@ -12,7 +12,9 @@ export const useHttp = (method, data) => {
   const [fetchedData, setFetchedData] = useState(null);
 
   useEffect(() => {
-    fetch(settings.url + `/webservice.php?${encodeFormData(data)}`)
+    fetch(settings.url + `/webservice.php?${encodeFormData(data)}`, {
+      method: "GET",
+    })
       .then((res) => {
         try {
           return res.json();
