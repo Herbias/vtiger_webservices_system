@@ -12,14 +12,17 @@ export default () => {
     username: settings.user,
   });
 
-  console.log(getChallenge);
+  console.log(getChallenge ? getChallenge : []);
+
+  const success = getChallenge ? getChallenge.success : false;
+  const result = getChallenge ? getChallenge.result : null;
 
   useEffect(() => {
     if (
       settings.url === "" ||
       settings.user === "" ||
       settings.accesKey === "" ||
-      getChallenge.success == false
+      success === false
     ) {
       setMessage({
         style: "text-red-500",
@@ -31,7 +34,7 @@ export default () => {
         str: "Welcome to VTiger Web Services",
       });
     }
-  }, [settings]);
+  }, [settings, getChallenge]);
 
   return (
     <MainLayout>

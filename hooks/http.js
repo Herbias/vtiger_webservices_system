@@ -13,20 +13,22 @@ export const useHttp = (method, data) => {
 
   useEffect(() => {
     fetch(settings.url + `/webservice.php?${encodeFormData(data)}`, {
-      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Mode: "no-cors",
+      },
     })
       .then((res) => {
         try {
-          return res.json();
+          if (res.ok) return res.json();
         } catch (err) {
           console.warn(e);
         }
       })
       .then((data) => {
-        console.log(data);
         setFetchedData(data);
       });
   }, [settings]);
 
-  return [fetchedData];
+  return fetchedData;
 };
