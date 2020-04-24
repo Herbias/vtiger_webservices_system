@@ -13,7 +13,6 @@ export const useHttp = (method, data) => {
 
   useEffect(() => {
     fetch(settings.url + `/webservice.php?${encodeFormData(data)}`, {
-      method: method,
       headers: {
         Accept: "'application/json'",
         "Access-Control-Allow-Origin": "*",
