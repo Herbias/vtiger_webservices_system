@@ -4,6 +4,7 @@ export let initState = {
     user: "",
     accessKey: "",
   },
+  credentials: {},
 };
 
 export default function (state = initState, action) {
