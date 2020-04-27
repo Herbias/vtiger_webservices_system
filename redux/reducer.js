@@ -1,10 +1,14 @@
 export let initState = {
+  token: "",
   settings: {
     url: "",
     user: "",
     accessKey: "",
   },
-  credentials: {},
+  credentials: {
+    sessionName: "",
+    userId: "",
+  },
 };
 
 export default function (state = initState, action) {
@@ -17,6 +21,12 @@ export default function (state = initState, action) {
           user: action.payload.user,
           accessKey: action.payload.accessKey,
         },
+      };
+    case "SET_CREDENTIAL":
+      console.log("From reducer: " + JSON.stringify(action.payload));
+      return {
+        ...state,
+        credentials: action.payload,
       };
     default:
       return state;

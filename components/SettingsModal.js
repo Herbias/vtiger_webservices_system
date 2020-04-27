@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
-const SettingsModal = ({ SetCredential }) => {
+const SettingsModal = ({ SetSettings }) => {
   const [user, setUser] = useState("");
   const [accessKey, setAccessKey] = useState("");
   const [url, setUrl] = useState("");
@@ -43,7 +43,7 @@ const SettingsModal = ({ SetCredential }) => {
             <button
               className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={(e) =>
-                SetCredential(e, { url: url, user: user, accessKey: accessKey })
+                SetSettings(e, { url: url, user: user, accessKey: accessKey })
               }
             >
               OK

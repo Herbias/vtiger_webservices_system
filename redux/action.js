@@ -9,4 +9,11 @@ const SetSettings = (data) => {
   };
 };
 
-export { SetSettings };
+const SetCredential = (data) => {
+  return {
+    type: "SET_CREDENTIAL",
+    payload: data,
+  };
+};
+
+export { SetSettings, SetCredential };

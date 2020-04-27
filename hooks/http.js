@@ -8,26 +8,49 @@ const encodeFormData = (data) => {
 };
 
 export const useHttp = (method, data) => {
-  const settings = useSelector((state) => state.settings);
+  let settings = useSelector((state) => state.settings);
   const [fetchedData, setFetchedData] = useState(null);
 
   useEffect(() => {
-    fetch(settings.url + `/webservice.php?${encodeFormData(data)}`, {
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Mode: "no-cors",
-      },
-    })
-      .then((res) => {
-        try {
-          if (res.ok) return res.json();
-        } catch (err) {
-          console.warn(e);
-        }
+    if (method == "GET") {
+      fetch(settings.url + `/webservice.php?${encodeFormData(data)}`, {
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Mode: "no-cors",
+        },
       })
-      .then((data) => {
-        setFetchedData(data);
-      });
+        .then((res) => {
+          try {
+            if (res.ok) return res.json();
+          } catch (err) {
+            console.warn(e);
+          }
+        })
+        .then((data) => {
+          setFetchedData(data);
+        });
+    }
+    if (
+      method == "POST" /* && (data.accessKey != "" || data.accessKey != null) */
+    ) {
+      console.log(data);
+      let body = encodeFormData(data);
+      fetch(`http://localhost/vtigercrm` + `/webservice.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body,
+      })
+        .then((res) => {
+          try {
+            if (res.ok) return res.json();
+          } catch (err) {
+            console.warn(e);
+          }
+        })
+        .then((data) => {
+          setFetchedData(data);
+        });
+    }
   }, [settings]);
 
   return fetchedData;
