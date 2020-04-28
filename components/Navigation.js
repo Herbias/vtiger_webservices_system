@@ -15,7 +15,7 @@ export default ({ Show }) => {
           </Link>
         </li>
         <li className="mr-6">
-          <Link href="/Organization">
+          <Link href="/organization">
             <a className="text-blue-500 hover:text-blue-800">Organization</a>
           </Link>
         </li>
