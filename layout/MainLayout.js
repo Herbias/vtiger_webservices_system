@@ -27,7 +27,6 @@ const MainLayout = (props) => {
   const challengeSuccess = getChallenge ? getChallenge.success : false;
   const challengeResult = getChallenge ? getChallenge.result : null;
 
-  console.log(challengeResult != null ? challengeResult.token : "");
   console.log(accessKey != "" ? accessKey : "");
 
   const createSettings = useCallback(
@@ -55,7 +54,6 @@ const MainLayout = (props) => {
       challengeResult == null
     )
       return;
-    console.log("from useEffect: " + accessKey);
     setAccessKey(md5(challengeResult.token + settings.accessKey));
   }, [getChallenge]);
 
