@@ -10,7 +10,7 @@ export default ({ Show }) => {
           </Link>
         </li>
         <li className="mr-6">
-          <Link href="/Tickets">
+          <Link href="/tickets">
             <a className="text-blue-500 hover:text-blue-800">Tickets</a>
           </Link>
         </li>
