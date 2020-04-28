@@ -117,9 +117,9 @@ export default () => {
               <tbody>{list && <Row data={list} />}</tbody>
             </table>
           </div>
-          <div className="shadow rounded p-4 ml-2">
+          {/* <div className="shadow rounded p-4 ml-2">
             <h1>Add new record</h1>
-          </div>
+          </div> */}
         </div>
       </div>
     </MainLayout>
