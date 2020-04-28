@@ -99,7 +99,7 @@ export default () => {
     <MainLayout>
       <div className="p-4 shadow rounded bg-white">
         <h1>Tickets</h1>
-        {/* <div className="flex">
+        <div className="flex">
           <div>
             <table className="table-auto">
               <thead>
@@ -120,7 +120,7 @@ export default () => {
           <div className="shadow rounded p-4 ml-2">
             <h1>Add new record</h1>
           </div>
-        </div> */}
+        </div>
       </div>
     </MainLayout>
   );
