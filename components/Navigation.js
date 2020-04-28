@@ -10,12 +10,12 @@ export default ({ Show }) => {
           </Link>
         </li>
         <li className="mr-6">
-          <Link href="/tickets">
+          <Link href="/Tickets">
             <a className="text-blue-500 hover:text-blue-800">Tickets</a>
           </Link>
         </li>
         <li className="mr-6">
-          <Link href="/organization">
+          <Link href="/Organization">
             <a className="text-blue-500 hover:text-blue-800">Organization</a>
           </Link>
         </li>
